@@ -2,7 +2,7 @@ import java.util.*;
 /// @author cowcutta /////
 
 
-///Tree collections organize the data in an alphabetical order////
+///Hash collections organize the data in no particular order////
     public class CollectionList {
         public static void main(String[] args) {
             
