@@ -4,9 +4,9 @@
  /////@author cowcutta//////
 
 /*
-///This application runs two threads simultaneously without the loss of 
-data using a synchronized function.  The sum of the two threads will be printed
-after both have run and compiled.
+///This application runs three threads simultaneously without the loss of 
+data using a synchronized function.  The sum of the three threads will be printed
+after all have run and compiled.
 */
 
 
@@ -31,8 +31,8 @@ public class threadsExecRun {
         Thread t1 = new Thread(new Runnable(){
             
             public void run(){
-               //// counts to 10,000 //// 
-                for(int i=0; i<10000; i++){
+               //// counts to 5,000 //// 
+                for(int i=0; i<5000; i++){
                     ////runs synchronized function//////
                     increment();
                 }
@@ -41,21 +41,33 @@ public class threadsExecRun {
         
         Thread t2 = new Thread(new Runnable(){
             public void run(){
-                /// counts to 10,000 ////
-                for(int i=0; i<10000; i++){
+                /// counts to 5,001 ////
+                for(int i=0; i<5001; i++){
                     ////runs synchronized function//////
                     increment();
                 }
             }
         });
-        ////runs both threads////
+        
+        Thread t3 = new Thread(new Runnable(){
+            
+            public void run(){
+               //// counts to 5,002 //// 
+                for(int i=0; i<5002; i++){
+                    ////runs synchronized function//////
+                    increment();
+                }
+            }
+        });
+        ////runs the three threads////
         t1.start();
         t2.start();
-        
-        ////adds the results of both threads////
+        t3.start();
+        ////adds the results of each thread////
         try{
             t1.join();
             t2.join();
+            t3.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
