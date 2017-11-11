@@ -41,7 +41,7 @@ public class Controller {
         return model.getNumber();
     }
     public void updateView(){
-       view.printStudentDetails(model.getName(), model.getNumber()); 
+       view.printBandDetails(model.getName(), model.getNumber()); 
     }
     
 }

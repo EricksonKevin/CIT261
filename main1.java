@@ -18,7 +18,7 @@ public class main1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         View view = new View();
-        Model model = retrievePlayerInfo();
+        Model model = retrieveBandInfo();
         
         Controller controller = new Controller(model, view);
         
@@ -35,7 +35,7 @@ public class main1 {
         
     }
     
-    private static Model retrievePlayerInfo(){
+    private static Model retrieveBandInfo(){
         Model player = new Model();
         player.setName("The Beatles");
         player.setNumber("2");

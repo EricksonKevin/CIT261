@@ -11,7 +11,7 @@
 
 public class View {
     
-    public void printStudentDetails(String BandName, String BandNumber){
+    public void printBandDetails(String BandName, String BandNumber){
         
         System.out.println("Band name " + BandNumber);
         System.out.println(BandName);
