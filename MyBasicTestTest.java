@@ -50,4 +50,14 @@ public class MyBasicTestTest {
         int result = instance.add(s1, s2);
         assertEquals(expResult, result);
     }
+    
+    public void testAdd2() {
+        System.out.println("add");
+        String s1 = "5";
+        String s2 = "10";
+        MyBasicTest instance = new MyBasicTest();
+        int expResult = 6;
+        int result = instance.add(s1, s2);
+        assertEquals(expResult, result);
+    }
 }
