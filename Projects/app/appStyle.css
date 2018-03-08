@@ -1,0 +1,190 @@
+h1 {
+	color: crimson;
+	border: 4px solid blue;
+	border-radius: 5px;
+	width: 200px;
+	text-align: center;
+	font-family: "century gothic";
+	position: absolute;
+	-webkit-animation: rotation 2s infinite;
+	-webkit-animation-delay: .5s;
+	}
+
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(-10deg);
+		}
+		to {
+				-webkit-transform: rotate(35deg);
+		}
+	to {
+				-webkit-transform: rotate(0deg);
+		}
+		
+}
+
+
+#contact {
+	color: crimson;
+	position: absolute;
+	width: 150px;
+	font-family: "century gothic";
+	
+}
+
+
+h2 {
+	
+	position: absolute;
+	padding-left: 350px;
+}
+
+h2 {
+	position: absolute;
+	animation: colorchange 2s infinite ;
+}
+@keyframes colorchange {
+	
+	50% {color: crimson;}
+	100% {color: blue;}
+	
+	
+}
+
+h3 {
+	color: crimson;
+}
+
+#cow {
+	margin-right: 50px;
+	position: relative;
+	z-index: 10;
+	padding-left: 310px;
+	
+	
+}
+
+body {
+	background-color: #000000;
+	width: 1020px;
+}
+
+#draw {
+ position: relative;
+	margin-left: 300px;
+	margin-top: -300px; 
+	border-radius: 10px;
+	z-index: 10;
+	}
+
+#btn {
+	color: blue;
+	border: solid 2px red;
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px 2px;
+	margin-left: 430px;
+}
+
+#btn:active {
+	
+	background:  green;
+	border-radius: 50%;
+}
+
+#status {
+	border: 2px solid blue;
+	width: 280px;
+	margin-left: 404px;
+	text-align: center;
+	border-radius: 10px;
+	font-family: "century gothic";
+	transition: width 1s, transform 1s;
+}
+#status:enabled {
+	width: 300px;
+	transition-delay: 1s;
+	transform: rotate(360deg);
+}
+
+#box2  {	
+	position: relative;
+	z-index: 12;
+	
+		}
+
+
+#cleaver {
+	margin-top: -100px;
+	width: 300px;
+	padding-left: 600px;
+	margin-left: -312px;
+	position: absolute;
+	z-index: 13;
+}
+
+#cleaver {
+		-webkit-animation: rotation 2s infinite ease-in;
+		-webkit-animation-iteration-count: 3;
+		-webkit-animation-delay: .75s;
+}
+
+@-webkit-keyframes rotation {
+	10% {-webkit-transform: rotate(-90deg);}
+	20% {-webkit-transform: rotate(10deg);}
+	
+	50% {-webkit-transform-delay: 1s;}
+	60% {-webkit-transform-style: flat;}
+		
+
+	
+	
+	}
+
+
+button {
+	color: crimson;
+	
+	
+}
+
+
+
+
+#char-info {
+	width: 300px;
+	
+}
+
+
+		
+
+#char-info{
+	width: 400px;
+	color: white;
+	display: inherit;
+	font-family: "century gothic";
+	margin-left: 900px;
+	margin-top: -500px;
+		
+}
+
+#lstor {
+	
+	padding-left: 450px;
+	margin-bottom: 10px;
+	color: white;
+	font-family: "century gothic";
+	
+	
+}
+strong {
+	color: crimson;
+}
+
+p {
+	color: white;
+	font-family: "century gothic";
+
+}
+

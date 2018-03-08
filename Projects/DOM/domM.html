@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>DOM</title>
+	
+	<link rel="stylesheet" href="mainStyle.css">
+</head>
+<body>
+			
+	<header>
+		<h1>DOM Manipulation</h1>		
+	</header>
+<hr>	
+	<p>Clicking this button will add a movie to the second position,</p>
+	<p>using DOM, createElement, appendChild, and insertBefore.</p>
+	<button onclick = "myFunction()">Add Movie</button>
+	
+	
+		<ol id="list">
+			<li>Fellowship of the Ring</li>
+			<li>Return of the King</li>
+		</ol>
+		
+<hr>	
+
+		<p>Clicking this button will remove the first movie from the list,</p>
+		<p>using DOM and removeChild.</p>
+		<button onclick = "myFunction2()">Remove Movie</button>
+	
+		<ol id="list2"><li>A New Hope</li><li>The Empire Strikes Back</li><li>Return of the Jedi</li>
+		<li>The Phantom Menace</li><li>Attack of the Clones</li><li>Revenge of the Sith</li>
+		<li>The Force Awakens</li><li>The Last Jedi</li></ol>
+
+	
+	
+<hr>
+		
+	</body>
+	<script>
+		
+		function myFunction() {
+			var newMovie = document.createElement("li");
+			var textnode = document.createTextNode("The Two Towers");
+			newMovie.appendChild(textnode);
+
+			var newList = document.getElementById("list");
+			newList.insertBefore(newMovie, list.childNodes[2]);
+			}
+			
+		function myFunction2() {
+			var list1 = document.getElementById("list2");
+			list1.removeChild(list1.childNodes[0]);
+		}	
+		
+		
+	</script>
+	
+	
+<audio src="vader.mp3" autoplay loop controls></audio>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+	<link href="appStyle.css" type="text/css" rel="stylesheet" />
+</head>
+
+	<body>
+	<h1>Learn About Cuts of Beef</h1>
+	
+	 
+		
+	<img id="cow" width="480" height="295" src="img/beef2.png" alt="cow">
+	
+	
+	
+	
+	
+	<h2>Click on a primal for cooking suggestions</h2>
+	
+	
+	
+	<!--drawing board-->
+		<canvas id="draw" width="495" height="315" style="border: 5px solid white";>
+		</canvas>
+		<!--<button onclick="swipeIn('box2')">Move in</button>-->
+		<button onclick="swipeOut('box2')">Remove Cleaver</button>
+		
+		<div id="box2">
+		<img id="cleaver" src="img/cleaver.png">
+		</div>	
+		
+		<script>
+		
+		
+		
+		
+		
+		function initCanvas(){
+			var c = document.getElementById("draw").getContext("2d");			
+		    img = document.getElementById("cow");
+			 c.drawImage(img, 10, 10);			
+			}
+			var ctx = document.getElementById('draw').getContext('2d');
+			
+			ctx.canvas.addEventListener('mousedown', function(event)  {
+				var mX = event.clientX - ctx.canvas.offsetLeft;
+				var mY = event.clientY - ctx.canvas.offsetTop;
+				
+				//identifies coordinates clicked on the canvas
+				for(var i = 0; i < primals.length; i++) {
+				    var p = primals[i];
+					if (mX >= p.x && mX < p.x+p.w && mY >= p.y && mY <p.y+p.h)
+					{
+				//returns the name of primal clicked on from JSON file	
+						document.getElementById('status').innerHTML = "Cuts from the "+p.id+ " are great for "+p.cook+".";
+					}
+				}
+				
+			});
+			
+			
+				//JSON file with boxes layered over image of cow, and suggested cooking methods
+			var primals = [{"id":"chuck", "x":135, "y":50, "w":85, "h":67, "cook":"slow cooking and broiling"}, 
+						   {"id":"rib", "x":239, "y":41, "w":50, "h":60, "cook":"the BBQ and the Prime Rib roasts turn out perfect as they are slow cooked"}, 
+						   {"id":"shortloin", "x":305, "y":40, "w":50, "h":70, "cook":"the grill and for braising"},
+						   {"id":"sirloin", "x":365, "y":42, "w":40, "h":80, "cook":"grilling, stewing, and stir fry.  Normally, this is a very lean cut"},
+						   {"id":"round", "x":415, "y":59, "w":55, "h":120, "cook": "stew meat and cube steaks.  Lean roasts can be found in the round as well"},
+						   {"id":"flank", "x":302, "y":126, "w":85, "h":50, "cook": "stir fry or other thin sliced dishes.  It is full of flavor and easy to prepare"},
+						   {"id":"plate", "x":230, "y":130, "w":60, "h":50, "cook": "slow and steadty cooking.  These cuts are great for shredding because of the high amount of connective tissue."},
+						   {"id":"shank", "x":157, "y":130, "w":60, "h":100, "cook": "casseroles.  Cook slow over low, moist heat for best results."}
+						   
+						   
+			];
+			
+			for(var i = 0; i < primals.length; i++) {
+				var p = primals[i];
+				
+			};
+			
+			//function swipeIn(em){
+			//var elmt = document.getElementById(em);
+			//elmt.style.transition = "left 0.75s ease-in 0s";
+			//elmt.style.left = "300px";
+			//}
+			
+			//removes cleaver from page
+		function swipeOut(em){	
+			var elmt = document.getElementById(em);
+			elmt.style.transition = "left 0.75s ease-out linear";
+			elmt.style.left = "-610px";
+			
+			}
+			//output the current value of local storage
+			document.write ("<p>Your current favorite cut of beef is a "+localStorage.text+".</p>");	
+		</script>
+		
+	
+	  	<br>
+		<br>
+		
+		
+		
+		<h3 id ="status"></h3>
+		
+		
+		
+		
+		
+		<div id="lstor">
+		<input type="text" id="textfield" />
+		<input type="button" value="save" onclick="save()">    What is your favorite cut?</input>
+		</div>
+	
+		
+	
+		
+		<button id = "btn">Click for more info about specific cuts</button>
+		
+		<div id ="char-info"></div>
+		
+		
+	
+
+	
+
+
+<script>
+	<!--ajax and json-->
+var pageCounter = 1;
+//adds a variable to the div in the html
+var charContainer = document.getElementById("char-info");  
+var btn = document.getElementById("btn");
+
+btn.addEventListener("click", function() {	
+	var ourRequest = new XMLHttpRequest();
+	
+//access the data from an outside source  URL	
+	ourRequest.open('GET', 'https://raw.githubusercontent.com/EricksonKevin/ericksonkevin.github.io/master/index.md');
+	ourRequest.onload = function() {
+		
+//run the data through a JSON filter 
+		var ourData = JSON.parse(ourRequest.responseText);
+		renderHTML(ourData);
+};
+	ourRequest.send();
+	
+//This adds a class to the btn element 
+//that is accessed through css. Supposed to cause the button to dissappear after one click
+pageCounter++;
+	if (pageCounter > 1) {
+		btn.classList.add("hideMe");
+	}
+	
+});
+//javascript to concatonate all of the data into paragraph form
+function renderHTML(data) {
+	var htmlString = "";
+//instructions to go through each object in the JSON file	
+	for (i = 0; i < data.length; i++) {
+		htmlString += "<p>The <strong>" + data[i].name + "</strong> includes these cuts: " + data[i].cut1 + ", " + data[i].cut2 + ", and " + data[i].cut3 + ".</p>";
+	}
+//Assigns where the htmlString is to be placed 	
+	charContainer.insertAdjacentHTML('beforeend', htmlString);
+}
+//sets input from user to local storage
+function save()   {
+	var fieldValue = document.getElementById('textfield').value;
+	localStorage.setItem('text', fieldValue);
+}
+
+
+	</script> 
+	
+	
+		
+	</body>
+</html>

@@ -1,0 +1,6 @@
+var newMovie = document.createElement("li");
+var textnode = document.createTextNode("The Two Towers");
+newItem.appendChild(textnode);
+
+var newList = document.getElementById("list");
+list.insertBefore(newMovie, list.childNodes[1]);

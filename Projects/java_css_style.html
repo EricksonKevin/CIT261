@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html>
+<head>
+ 
+	
+		<title>HTML5 CSS/javascript</title>
+			
+			
+<!--div for transtitions-->
+<style type="text/css">
+		div#box {
+			width: 600px;
+			height: 400px;
+			background: #f45c42;
+		}
+	</style>	
+	
+<!--div for animations-->	
+<style type="text/css">
+		div#box2 {
+		background: #6f5cc4;
+			width: 400px;
+			height: 250px;
+			position: absolute;
+			top: 350px;
+			left: -400px;
+		}
+</style>
+  
+  
+</head>
+
+<body>
+
+
+
+<hr>
+<hr>
+
+
+
+<h1> CSS3 animation using JavaScript </h1>
+	
+
+
+
+<button onclick="swipeIn('box2');">Move in</button>
+<button onclick="swipeOut('box2');">Move out</button>
+
+<div id="box2">Place some text here.</div>	
+
+<hr>
+<hr>
+
+		<h1>CSS3 transitions using Javascript</h1>
+		
+	
+		
+		
+	<script>
+		function transBkGrd(em, color){
+			var elmt = document.getElementById(em);
+			elmt.style.transition = "background 1.0s linear 0s";
+			elmt.style.background = color;
+			
+		}
+		
+		function swipeIn(em){
+			var elmt = document.getElementById(em);
+			elmt.style.transition = "left 0.75s ease-in 0s";
+			elmt.style.left = "300px";
+			}
+		function swipeOut(em){	
+			var elmt = document.getElementById(em);
+			elmt.style.transition = "left 0.75s ease-out 0s";
+			elmt.style.left = "-400px";
+			}
+	
+	
+	</script>
+
+<button onclick="transBkGrd('box', '#42b3f4');">blue</button>
+<button onclick="transBkGrd('box', '#f48bdd');">pink</button>
+<button onclick="transBkGrd('box', '#f45c42');">starting color</button>
+<div id="box">
+</div>
+
+
+
+<hr>
+<hr>
+
+
+
+</body>
+</html>
+		
+		
+		
+	
